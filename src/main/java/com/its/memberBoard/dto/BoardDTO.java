@@ -14,5 +14,5 @@ public class BoardDTO {
     private int boardHits;
     private Timestamp boardCreatedDate;
     private MultipartFile boardFile;
-    private Long boardFileName;
+    private String boardFileName;
 }

@@ -21,19 +21,14 @@
 <div class="container">
     <div class="row justify-content-md-center">
         <div class="col-md-auto">
-            <form action="/board/save" method="post">
-                <div class="row">
-                        작성자<input class="form-control mb-2" type="text" id="boardWriter" name="boardWriter"
-                                  placeholder="${sessionScope.loginMemberId}">
-                </div>
-                <div class="row">
-                    <
-                    제목<input class="form-control mb-2" type="text" id="boardTitle" name="boardTitle">
-                </div>
-                    내용<textarea class="form-control" name="boardContents" id="boardContents" cols="30"
-                                rows="10"></textarea><br>
-                    <input class="btn btn-primary" type="submit" value="글쓰기">
-
+            <form action="/board/save" method="post" enctype="multipart/form-data">
+                작성자<input class="form-control mb-2" type="text" id="boardWriter" name="boardWriter"
+                          value="${sessionScope.loginMemberId}" readonly>
+                제목<input class="form-control mb-2" type="text" id="boardTitle" name="boardTitle">
+                내용<textarea class="form-control" name="boardContents" id="boardContents" cols="30"
+                            rows="10"></textarea>
+                <input type="file" name="boardFile"><br>
+                <input class="btn btn-primary" type="submit" value="글쓰기">
             </form>
         </div>
     </div>

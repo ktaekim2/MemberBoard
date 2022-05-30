@@ -44,7 +44,7 @@
         <c:forEach var="board" items="${boardList}">
             <tr href="/board/detail?id=${board.id}">
                 <td>${board.id}</td>
-                <td>${board.boardTitle}</td>
+                <td><a href="/board/detail?page=${paging.page}&id=${board.id}">${board.boardTitle}</a></td>
                 <td>${board.boardWriter}</td>
                 <td><fmt:formatDate pattern="yy-MM-dd hh:mm"
                                     value="${board.boardCreatedDate}"></fmt:formatDate></td>
@@ -107,7 +107,9 @@
             </c:otherwise>
         </c:choose>
     </ul>
-    <button onclick="save()">글쓰기</button>
+    <c:if test="${sessionScope.loginMemberId ne null}">
+        <button onclick="save()">글쓰기</button>
+    </c:if>
 </div>
 <jsp:include page="../layout/footer.jsp" flush="false"></jsp:include>
 </body>

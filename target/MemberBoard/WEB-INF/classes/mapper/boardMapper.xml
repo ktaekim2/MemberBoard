@@ -9,6 +9,29 @@
         from mb_board_table
         order by id desc limit #{start}, #{limit}
     </select>
+
+    <select id="count" resultType="int">
+        select count(id)
+        from board_table
+    </select>
+
+    <insert id="save" parameterType="board">
+        insert into mb_board_table(boardWriter, boardTitle, boardContents, boardFileName, boardCreatedDate)
+        values (#{boardWriter}, #{boardTitle}, #{boardContents},
+                #{boardFileName}, now())
+    </insert>
+
+    <select id="findById" parameterType="Long" resultType="board">
+        select *
+        from mb_board_table
+        where id = #{id}
+    </select>
+
+    <delete id="delete" parameterType="Long">
+        delete
+        from mb_board_table
+        where id = #{id}
+    </delete>
 </mapper>
 
 
