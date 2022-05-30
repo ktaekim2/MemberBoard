@@ -112,4 +112,10 @@ public class MemberController {
         memberService.update(memberDTO);
         return "redirect:/member/detail?id=" + session.getAttribute("loginId");
     }
+
+    @GetMapping("/deleteMyself")
+    public String deleteMyself(@RequestParam("id") Long id) {
+        memberService.delete(id);
+        return "redirect:/member/logout";
+    }
 }
