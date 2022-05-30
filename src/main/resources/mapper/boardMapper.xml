@@ -12,7 +12,7 @@
 
     <select id="count" resultType="int">
         select count(id)
-        from board_table
+        from mb_board_table
     </select>
 
     <insert id="save" parameterType="board">

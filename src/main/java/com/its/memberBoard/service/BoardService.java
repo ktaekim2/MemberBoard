@@ -19,7 +19,7 @@ public class BoardService {
     private BoardRepository boardRepository;
 
     private static final int PAGE_LIMIT = 5;
-    private static final int BLOCK_LIMIT = 5;
+    private static final int BLOCK_LIMIT = 3;
 
     public List<BoardDTO> pagingList(int page) {
         int pagingStart = (page - 1) * PAGE_LIMIT;

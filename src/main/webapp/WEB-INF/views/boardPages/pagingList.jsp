@@ -55,45 +55,32 @@
 </div>
 <div class="container">
     <ul class="pagination justify-content-center">
-        <%--        이전--%>
         <c:choose>
-            <%--            현재 페이지가 1페이지면 이전 글자만 보여줌--%>
             <c:when test="${paging.page<=1}">
-                <%--                page=1이면--%>
-                <%--            if 역할--%>
                 <li class="page-item disabled">
                     <a class="page-link">[이전]</a>
                 </li>
             </c:when>
-            <%--            1페이지가 아닌 경우에는 [이전]을 클릭하면 현재 페이지보다 1 작은 페이지 요청--%>
             <c:otherwise>
-                <%--                else 역할--%>
                 <li class="page-item">
                     <a class="page-link" href="/board/paging?page=${paging.page-1}">[이전]</a>
                 </li>
             </c:otherwise>
         </c:choose>
-
         <c:forEach begin="${paging.startPage}" end="${paging.endPage}" var="i" step="1">
-            <%--            begin: 시작값, end: 끝값, var: 반복변수, step: 증감--%>
-            <%--            java로 보면 -> for(int i = startPage; i = endPage; i++)--%>
             <c:choose>
-                <%--                현재 내가 있는 페이지는 그냥 text로 표현--%>
                 <c:when test="${i eq paging.page}">
-                    <%--                    jsp문법은 '=='대신 eq(equals)로 표현--%>
                     <li class="page-item active">
                         <a class="page-link">${i}</a>
                     </li>
                 </c:when>
                 <c:otherwise>
-                    <%--                    다른 페이지는 링크로 표현--%>
                     <li class="page-item">
                         <a class="page-link" href="/board/paging?page=${i}">${i}</a>
                     </li>
                 </c:otherwise>
             </c:choose>
         </c:forEach>
-        <%--        다음--%>
         <c:choose>
             <c:when test="${paging.page>=paging.maxPage}">
                 <li class="page-item disabled">
