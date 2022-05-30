@@ -32,6 +32,13 @@
         from mb_board_table
         where id = #{id}
     </delete>
+
+    <update id="update" parameterType="board">
+        update mb_board_table
+        set boardTitle = #{boardTitle},
+            boardContents = #{boardContents}
+        where id = #{id}
+    </update>
 </mapper>
 
 

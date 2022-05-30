@@ -81,8 +81,6 @@
     }
 
     const boardUpdate = () => {
-        // 수정을 위한 화면(update.jsp)을 출력하고, 비밀번호를 입력받아서
-        // 비밀번호 일치하면 수정처리, 일치하지 않으면 alert(회원 수정이랑 프로세스 같음)
         location.href = '/board/update?id=${board.id}'
     }
 

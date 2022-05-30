@@ -66,4 +66,9 @@ public class BoardService {
     public void delete(Long id) {
         boardRepository.delete(id);
     }
+
+    public void update(BoardDTO boardDTO) {
+        System.out.println("boardDTO = " + boardDTO);
+        boardRepository.update(boardDTO);
+    }
 }
