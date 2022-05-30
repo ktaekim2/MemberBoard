@@ -48,6 +48,12 @@
               -- %를 문자로 인식하기 때문에 concat 사용
         order by id desc
     </select>
+
+    <update id="updateHits" parameterType="Long">
+        update mb_board_table
+        set boardHits = boardHits + 1
+        where id = #{id};
+    </update>
 </mapper>
 
 
