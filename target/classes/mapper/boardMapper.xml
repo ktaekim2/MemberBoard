@@ -39,6 +39,15 @@
             boardContents = #{boardContents}
         where id = #{id}
     </update>
+
+    <select id="search" parameterType="java.util.HashMap" resultType="board">
+        select *
+        from mb_board_table
+        where ${type} like concat('%', #{q}, '%')
+              -- 컬럼에는 #이 아니라 $를 써야 함.
+              -- %를 문자로 인식하기 때문에 concat 사용
+        order by id desc
+    </select>
 </mapper>
 
 
