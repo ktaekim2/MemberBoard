@@ -26,10 +26,14 @@
             <form action="/member/save" method="post" enctype="multipart/form-data">
                 아이디<input type="text" name="memberId" id="memberId" onblur="duplicateCheck()">
                 <span id="dup-check-result"></span><br>
-                비밀번호<input type="password" name="memberPassword">
+                비밀번호<input type="password" name="memberPassword" id="memberPassword" onblur="passwordCheck()"
+                           placeholder="8~16, 영문대소문자" >
+                <p id="passwordCheckResult"></p>
                 이름<input type="text" name="memberName">
                 이메일<input type="text" name="memberEmail">
-                전화번호<input type="text" name="memberMobile">
+                전화번호<input type="text" name="memberMobile" id="memberMobile" onblur="mobileCheck()"
+                           placeholder="000-0000-0000">
+                <p id="mobileCheckResult"></p>
                 프로필사진<input type="file" name="memberProfileFile"><br>
                 <input class="btn btn-primary" type="submit" value="회원가입">
             </form>
@@ -39,6 +43,32 @@
 <jsp:include page="../layout/footer.jsp" flush="false"></jsp:include>
 </body>
 <script>
+    function passwordCheck() {
+        const memberPassword = document.getElementById("memberPassword").value;
+        const passwordCheckResult = document.getElementById("passwordCheckResult");
+        const exp = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[A-Za-z\d]{8,16}$/;
+        if (memberPassword.match(exp)) {
+            passwordCheckResult.innerHTML = "올바른 비밀번호 형식";
+            passwordCheckResult.style.color = "green";
+        } else {
+            passwordCheckResult.innerHTML = "잘못된 비밀번호 형식";
+            passwordCheckResult.style.color = "red";
+        }
+    }
+
+    function mobileCheck() {
+        const memberMobile = document.getElementById("memberMobile").value;
+        const mobileCheckResult = document.getElementById("mobileCheckResult");
+        const exp = /^\d{3}-\d{4}-\d{4}$/;
+        if (memberMobile.match(exp)) {
+            mobileCheckResult.innerHTML = "올바른 전화번호 형식";
+            mobileCheckResult.style.color = "green";
+        } else {
+            mobileCheckResult.innerHTML = "잘못된 전화번호 형식";
+            mobileCheckResult.style.color = "red";
+        }
+    }
+
     const duplicateCheck = () => {
         const memberId = document.getElementById("memberId").value;
         const checkResult = document.getElementById("dup-check-result");
