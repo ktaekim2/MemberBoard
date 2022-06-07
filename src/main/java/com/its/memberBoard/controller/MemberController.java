@@ -118,4 +118,9 @@ public class MemberController {
         memberService.delete(id);
         return "redirect:/member/logout";
     }
+
+    @GetMapping("/order")
+    public String order(@RequestParam("id") Long id) {
+        return "/memberPages/order";
+    }
 }

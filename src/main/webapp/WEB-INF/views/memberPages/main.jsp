@@ -17,8 +17,11 @@
     <div class="row justify-content-md-center">
         <div class="col-md-auto">
             <h2 class="display-4 fw-normal">main.jsp</h2>
-            <button class="btn btn-outline-success" onclick="update()">회원정보 수정</button><br>
+            <button class="btn btn-outline-success" onclick="update()">회원정보 수정</button>
+            <br>
             <button class="btn btn-outline-success" onclick="deleteMyself()">회원탈퇴</button>
+            <button class="btn btn-outline-success" onclick="order()">주문페이지</button>
+
         </div>
     </div>
 </div>
@@ -31,6 +34,10 @@
 
     function deleteMyself() {
         location.href = "/member/deleteMyself?id=${sessionScope.loginId}";
+    }
+
+    function order() {
+        location.href = "/member/order?id=${sessionScope.loginId}";
     }
 
 </script>
