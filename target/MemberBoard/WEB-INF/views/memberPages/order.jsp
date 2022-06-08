@@ -11,7 +11,6 @@
     <title>Title</title>
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
     <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
-    출처: https://zarawebstudy.tistory.com/11 [자라월드:티스토리]
     <script>
         var IMP = window.IMP; // 생략 가능
         IMP.init("{imp66752664}"); // 예: imp00000000
